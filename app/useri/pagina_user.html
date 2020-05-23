@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="booksting">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagina userului</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="../modul_principal.js"></script>
+    <script src="user.js"></script>
+    <script src="../stinguri/emitere.js"></script>
+
+</head>
+<body>
+
+<p> Bine ai venit in pagina userului</p>
+<div ng-controller="User" id="User1">
+
+    <p> Username: {{flower.username}}</p>
+    <p> Nivel: {{flower.nivel}}</p>
+    <p> Descriere: {{flower.descriere}}</p>
+
+</div>
+
+<div ng-controller="Emite" id="Emite">
+    <input type="button" onclick="emiteUnSting();" value="Emite sting">
+</div>
+
+<p> Selectati noul nivel:</p>
+<select name="nivele" id="nivele">
+    <option value=3>Bee</option>
+    <option value=2>Hive</option>
+    <option value=1>Admin</option>
+</select>
+
+<div ng-controller="Promotion" id="Promotion">
+    <input type="button" onclick="promovare(nivele.value);" value="Promoveaza">
+    <p> {{eroare}} <br> {{mesaj}}</p>
+</div>
+
+</body>
+</html>

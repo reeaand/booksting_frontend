@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="booksting">
+<head>
+    <meta charset="UTF-8">
+    <title>Pagina cartii</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="../modul_principal.js"></script>
+    <script src="carte.js"></script>
+    <script src="../stinguri/emitere.js"></script>
+</head>
+<body>
+
+<p> Bine ai venit in pagina cartii</p>
+<div ng-controller="Carte" id="Carte1">
+
+    <p> Nume: {{carte.nume}}</p>
+    <p> Autor: {{carte.autor}}</p>
+    <p> Anul publicarii: {{carte.an}}</p>
+    <p> Numar pagini: {{carte.pagini}}</p>
+    <p> Descriere: {{carte.descriere}}</p>
+
+</div>
+
+<div ng-controller="Emite" id="Emite">
+    <input type="button" onclick="emiteUnSting();" value="Emite sting">
+</div>
+</body>
+</html>

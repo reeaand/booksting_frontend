@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="booksting">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="../modul_principal.js"></script>
+    <script src="intrare.js"></script>
+</head>
+<body>
+
+    <p> Username:</p>
+    <input type="text" id="username" >
+    <p> Password:</p>
+    <input type="text" id="parola" >
+    <p> Descriere:</p>
+    <input type="text" id="descriere">
+
+
+    <input type="button" onclick="inregistrare(username.value,parola.value,descriere.value);" value = "Sign up">
+
+
+    <div ng-controller="Intrare" id="Intrare">
+        <p> {{eroare}}</p>
+        <p> {{datele}}</p>
+    </div>
+</body>
+</html>

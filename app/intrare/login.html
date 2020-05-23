@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="booksting">
+<head>
+    <meta charset="UTF-8">
+    <title>Log in</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="../modul_principal.js"></script>
+    <script src="intrare.js"></script>
+
+</head>
+
+<body>
+
+    <p> Username:</p>
+    <input type="text" id="username" >
+    <p> Password:</p>
+    <input type="text" id="parola" >
+
+    <div ng-controller="Intrare" id="Intrare">
+    <input type="button" onclick="logare(username.value,parola.value)" value = "Log in">
+
+        <p> {{eroare}}</p>
+        <p> {{datele}}</p>
+    </div>
+
+</body>
+</html>
+

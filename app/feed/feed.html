@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="booksting">
+<head>
+    <meta charset="UTF-8">
+    <title>Feed</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="../modul_principal.js"></script>
+    <script src="cautare.js"></script>
+    <script src="notificari.js"></script>
+
+</head>
+<body>
+<p> Cautare carte dupa nume:</p>
+<input type="text" id="numeC">
+<div ng-controller="CautareCarte" id="CautareCarte">
+    <input type="button" onclick="cautCarte(numeC.value)" value = "Cauta carte">
+    <p> {{eroare}}</p>
+</div>
+
+<p> Cautare user dupa nume:</p>
+<input type="text" id="numeU">
+<div ng-controller="CautareUser" id="CautareUser">
+    <input type="button" onclick="cautUser(numeU.value)" value = "Cauta user">
+    <p> {{eroare}}</p>
+</div>
+
+<div ng-controller="Notif" id="Notif">
+
+</div>
+</body>
+</html>
