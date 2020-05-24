@@ -7,26 +7,71 @@
     <script src="../modul_principal.js"></script>
     <script src="carte.js"></script>
     <script src="../stinguri/emitere.js"></script>
+    <script src="../smecherii/fundal_schimbator.js"></script>
+<style>
+    .center {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #41d0fc;
+    padding: 10px;
+    background-color: #ffffff;
+    height: auto;
+    width: 60%;
+    color: #41d0fc;
+    text-align: center;
+    font-size: 20px;
+    }
+
+    .butoane {
+    margin: auto;
+    border: 1px solid #41d0fc;
+    text_align: center;
+    background-color: #41d0fc;
+    color: white;
+    font-size: 20px;
+    height: 50px;
+    width: 120px;
+    font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #fixedbutton {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    }
+
+    .ceva {
+    border-bottom: 1px solid #41d0fc;
+    border-top: 1px solid #06475c;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 17px;
+    }
+</style>
 </head>
 <body>
 
-<p> Bine ai venit pe pagina cartii</p>
+<div class="center">
 <div ng-controller="Carte" id="Carte1">
 
-    <p> Nume: {{carte.nume}}</p>
-    <p> Autor: {{carte.autor}}</p>
-    <p> Anul publicarii: {{carte.an}}</p>
-    <p> Numar pagini: {{carte.pagini}}</p>
-    <p> Descriere: {{carte.descriere}}</p>
+    <p class="ceva"> Nume: {{carte.nume}}</p>
+    <p class="ceva"> Autor: {{carte.autor}}</p>
+    <p class="ceva"> Anul publicarii: {{carte.an}}</p>
+    <p class="ceva"> Numar pagini: {{carte.pagini}}</p>
+    <p class="ceva"> Descriere: {{carte.descriere}}</p>
 
 </div>
-
-<div ng-controller="Emite" id="Emite">
-    <input type="button" onclick="emiteUnSting();" value="Emite sting">
 </div>
 
+<div class="center" ng-controller="Emite" id="Emite">
+    <input class="butoane" type="button" onclick="emiteUnSting();" value="Emite sting">
+</div>
+
+<div class="center">
 <div ng-controller="EditareCarte" id="EditareCarte">
-
 </div>
+</div>
+<input class="butoane" type="button" id="fixedbutton" onclick=location.href="../feed/feed.html" value="Acasa">
 </body>
 </html>

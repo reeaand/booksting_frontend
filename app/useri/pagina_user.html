@@ -7,24 +7,66 @@
     <script src="../modul_principal.js"></script>
     <script src="user.js"></script>
     <script src="../stinguri/emitere.js"></script>
+    <script src="../smecherii/fundal_schimbator.js"></script>
+    <style>
+        .center {
+            margin: auto;
+            width: 60%;
+            border: 3px solid #41d0fc;
+            padding: 10px;
+            background-color: #ffffff;
+            height: auto;
+            width: 60%;
+            color: #41d0fc;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .butoane {
+            margin: auto;
+            border: 1px solid #41d0fc;
+            text_align: center;
+            background-color: #41d0fc;
+            color: white;
+            font-size: 15px;
+            height: 35px;
+            width: auto;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #fixedbutton {
+            position: fixed;
+            top: 0px;
+            right: 0px;
+        }
+
+        .ceva {
+            border-bottom: 1px solid #41d0fc;
+            border-top: 1px solid #06475c;
+            width: 40%;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 17px;
+        }
+    </style>
 
 </head>
 <body>
-
-<p> Bine ai venit in pagina userului</p>
+<div class="center">
+<p class="ceva"> Bine ai venit pe pagina userului</p>
 <div ng-controller="User" id="User1">
 
-    <p> Username: {{flower.username}}</p>
-    <p> Nivel: {{flower.nivel}}</p>
-    <p> Descriere: {{flower.descriere}}</p>
+    <p class="ceva"> Username: {{flower.username}}</p>
+    <p class="ceva"> Nivel: {{flower.nivel}}</p>
+    <p class="ceva"> Descriere: {{flower.descriere}}</p>
 
 </div>
 
 <div ng-controller="Emite" id="Emite">
-    <input type="button" onclick="emiteUnSting();" value="Emite sting">
+    <input class="butoane" type="button" onclick="emiteUnSting();" value="Emite sting">
 </div>
 
-<p> Selectati noul nivel:</p>
+<p class="ceva"> Selectati noul nivel:</p>
 <select name="nivele" id="nivele">
     <option value=3>Bee</option>
     <option value=2>Hive</option>
@@ -32,18 +74,20 @@
 </select>
 
 <div ng-controller="Promotion" id="Promotion">
-    <input type="button" onclick="promovare(nivele.value);" value="Promoveaza">
-    <p> {{eroare}} <br> {{mesaj}}</p>
+    <br>
+    <input class="butoane" type="button" onclick="promovare(nivele.value);" value="Promoveaza">
+    <p> {{eroare}}{{mesaj}}</p>
 </div>
 
 <div ng-controller="CererePrietenie" id="CererePrietenie">
-    <p> {{mesaj}}</p>
+    <p class="ceva"> {{mesaj}}</p>
 </div>
 <div ng_controller="StergeUser" id="StergeUser">
 <script>
     if (localStorage.nivel == 1) {
         let btn = document.createElement("button");
         btn.innerHTML = "Sterge userul";
+        btn.className = "butoane";
         btn.id = 'sterge';
         btn.onclick = (function() {
             deSters();
@@ -52,6 +96,8 @@
     }
 </script>
 </div>
+</div>
 
+<input class="butoane" type="button" id="fixedbutton" onclick=location.href="../feed/feed.html" value="Acasa">
 </body>
 </html>

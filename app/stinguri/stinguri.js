@@ -47,6 +47,7 @@ angular.module('booksting').controller('Stinguri', function($scope, $http) {
         for (let i =0; i < $scope.lista.length; i++) {
             if ($scope.lista[i].key.status != -1) {
                 var para = document.createElement('p');
+                para.className = "center";
                 para.id = "-"+$scope.lista[i].key.id;
                 var parte = 0;
                 para.innerText += (($scope.lista[i].key.status == 1) ? "Sting terminat: " : "Sting activ: ");
@@ -66,6 +67,7 @@ angular.module('booksting').controller('Stinguri', function($scope, $http) {
                     para.innerText += " Pagina curenta este: " + $scope.lista[i].key.pagina + "\n\n";
                     let btn = document.createElement("button");
                     btn.id = $scope.lista[i].key.id;
+                    btn.className = "butoane";
                     if (parte == 1) {
                         btn.innerHTML = "Adauga zile";
                         btn.onclick = (function () {
@@ -77,7 +79,7 @@ angular.module('booksting').controller('Stinguri', function($scope, $http) {
                             $scope.flower($scope.lista[i]);
                         });
                     }
-                    document.getElementById('Stinguri').appendChild(btn);
+                    document.getElementById("-"+$scope.lista[i].key.id).appendChild(btn);
                 } else {
                     para.innerText += " Cartea a fost terminata la timp.";
                 }

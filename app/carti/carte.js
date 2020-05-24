@@ -36,6 +36,7 @@ angular.module('booksting').controller('EditareCarte', function($scope, $http) {
         let btnEditare = document.createElement("button");
         btnEditare.innerHTML = "Editeaza cartea";
         btnEditare.id = 'editez';
+        btnEditare.className ="butoane";
         btnEditare.onclick = (function() {
                 $scope.editeaza();
         });
@@ -43,6 +44,7 @@ angular.module('booksting').controller('EditareCarte', function($scope, $http) {
         if (localStorage.nivel != 1) return;
         let btnStergere = document.createElement("button");
         btnStergere.innerHTML = "Sterge cartea";
+        btnStergere.className ="butoane";
         btnStergere.id = 'editez';
         btnStergere.onclick = (function() {
             $scope.editeaza();
