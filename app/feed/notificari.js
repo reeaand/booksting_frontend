@@ -1,14 +1,28 @@
 'use strict';
-
+function hello() {
+    console.log('Hello');
+}
 angular.module('booksting').controller('Notif', function($scope, $http) {
-    $scope.accepta = function(idd) {
+    $scope.acceptaPr = function(idd) {
         $http.post('http://localhost:8080/prietenie/accept?notif=' + idd).then(function successCallback(response) {
             console.log("ok accept");
         });
     };
 
-    $scope.refuza = function(idd) {
+    $scope.refuzaPr = function(idd) {
         $http.post('http://localhost:8080/prietenie/refuz?notif=' + idd).then(function successCallback(response) {
+            console.log("ok refuz");
+        });
+    };
+
+    $scope.acceptaSting = function(idd) {
+        $http.post('http://localhost:8080/sting/acceptat?idNotif=' + idd).then(function successCallback(response) {
+            console.log("ok accept");
+        });
+    };
+
+    $scope.refuzaSting = function(idd) {
+        $http.post('http://localhost:8080/sting/refuz?idNotif=' + idd).then(function successCallback(response) {
             console.log("ok refuz");
         });
     };
@@ -18,27 +32,43 @@ angular.module('booksting').controller('Notif', function($scope, $http) {
         if ($scope.cv.toString() === "") {
             $scope.eroare = "Date invalide!";
         } else {
-            console.log("aici");
-            for(var i = 0; i < $scope.cv.length; i++) {
-                document.getElementById('Notif').innerHTML += '<p> ' + $scope.cv[i].value + ":<br>" + $scope.cv[i].key.text + '</p>';
-                if ($scope.cv[i].key.tip === "request") {
-                    console.log($scope.cv[i].key.id);
-                    let btnDa = document.createElement("BUTTON");
-                    btnDa.innerHTML = "Accept";
-                    btnDa.id = "Da"+$scope.cv[i].key.id;
-                    //btnDa.onclick = "$scope.accepta("+$scope.cv[i].key.id+")";
-                    document.getElementById('Notif').appendChild(btnDa);
+            $scope.cv.sort((a, b) => (a.key.id < b.key.id) ? 1 : -1);
+            for(let i = 0; i < $scope.cv.length; i++) {
+               var para = document.createElement('p');
+               para.innerText = "De la " + $scope.cv[i].value + ": " + $scope.cv[i].key.text;
+               document.getElementById('Notif').appendChild(para);
+               if ($scope.cv[i].key.tip === "request") {
 
-                    let btnNu = document.createElement("BUTTON");
+                    let btnDa = document.createElement("button");
+                    btnDa.innerHTML = "Accept";
+                    btnDa.id = $scope.cv[i].key.id;
+                    if ($scope.cv[i].key.text.startsWith("Utilizatorul")) {
+                        btnDa.onclick = (function() {
+                            $scope.acceptaPr(this.id);
+                        });
+                    } else {
+                        btnDa.onclick = (function() {
+                            $scope.acceptaSting(this.id);
+                        });
+                    }
+                    document.getElementById('Notif').appendChild(btnDa);
+                    let btnNu = document.createElement("button");
                     btnNu.innerHTML = "Refuz";
-                    btnNu.id = "Nu"+$scope.cv[i].key.id;
-                    btnNu.onclick = function () {
-                        $scope.refuza($scope.cv[btnNu.id.substr(2)].key.id);
-                    };
+                    btnNu.id = $scope.cv[i].key.id + 100;
+                   if ($scope.cv[i].key.text.startsWith("Utilizatorul")) {
+                       btnNu.onclick = (function() {
+                           $scope.refuzaPr(this.id-100);
+                       });
+                   } else {
+                       btnNu.onclick = (function() {
+                           $scope.refuzaSting(this.id-100);
+                       });
+                   }
                     document.getElementById('Notif').appendChild(btnNu);
 
                 }
             }
+
         }
     });
 });

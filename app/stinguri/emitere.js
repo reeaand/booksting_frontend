@@ -55,6 +55,10 @@ angular.module('booksting').controller('ListaPrieteni', function($scope, $http) 
                     opt1.innerHTML = $scope.prieteni[i].username;
                     select1.appendChild(opt1);
                 }
+                if (localStorage.catre != undefined) {
+                    select1.value = localStorage.catre;
+                    console.log(select1.value);
+                }
             });
 });
 
@@ -71,6 +75,10 @@ angular.module('booksting').controller('ListaCarti', function($scope, $http) {
                 opt1.value = $scope.carti[i].nume;
                 opt1.innerHTML = $scope.carti[i].nume;
                 select1.appendChild(opt1);
+            }
+            if (localStorage.carte != undefined) {
+                select1.value = localStorage.carte;
+                console.log(select1.value);
             }
         });
 });

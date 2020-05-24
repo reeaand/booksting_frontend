@@ -3,6 +3,7 @@
 angular.module('booksting').controller('Carte', function($scope, $http) {
     $http.get('http://localhost:8080/carte/searchCarte?nume=' + localStorage.carte).then(function (response) {
         $scope.carte = response.data;
+        localStorage.carte = $scope.carte.nume;
         var img = new Image();
         img.src = $scope.carte.coperta;
         img.width = 200;

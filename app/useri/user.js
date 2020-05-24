@@ -3,7 +3,7 @@
 angular.module('booksting').controller('User', function($scope, $http) {
     $http.get('http://localhost:8080/user/searched?username=' + localStorage.flower).then(function (response) {
         $scope.flower = response.data;
-
+        localStorage.catre = $scope.flower.username;
     });
 });
 

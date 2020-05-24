@@ -7,7 +7,7 @@
     <script src="../modul_principal.js"></script>
     <script src="cautare.js"></script>
     <script src="notificari.js"></script>
-
+    <script src="../stinguri/emitere.js"></script>
 </head>
 <body>
 <p> Cautare carte dupa nume:</p>
@@ -22,6 +22,12 @@
 <div ng-controller="CautareUser" id="CautareUser">
     <input type="button" onclick="cautUser(numeU.value)" value = "Cauta user">
     <p> {{eroare}}</p>
+</div>
+
+<input type="button" onclick=location.href="../stinguri/stinguri.html" value = "Stingurile mele">
+
+<div ng-controller="Emite" id="Emite">
+    <input type="button" onclick="emiteUnSting();" value="Emite sting">
 </div>
 
 <div ng-controller="Notif" id="Notif">
