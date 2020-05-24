@@ -5,8 +5,10 @@ angular.module('booksting').controller('Intrare', function($scope, $http) {
             if ($scope.datele.toString() === "") {
                 $scope.eroare = "Datele de logare sunt invalide!";
             } else {
+                localStorage.descriere = $scope.datele.descriere;
                 localStorage.idUser = $scope.datele.id;
                 localStorage.username = $scope.datele.username;
+                localStorage.nivel = $scope.datele.nivel;
                 location.href ="../feed/feed.html";
             }
         });
@@ -19,9 +21,10 @@ angular.module('booksting').controller('Intrare', function($scope, $http) {
             if ($scope.datele.toString() === "") {
                 $scope.eroare = "Datele de inregistrare sunt invalide!";
             } else {
-
+                localStorage.descriere = $scope.datele.descriere;
                 localStorage.username = $scope.datele.username;
                 localStorage.idUser = $scope.datele.id;
+                localStorage.nivel = $scope.datele.nivel;
                 location.href="../feed/feed.html";
             }
         });

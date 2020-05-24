@@ -39,6 +39,19 @@
 <div ng-controller="CererePrietenie" id="CererePrietenie">
     <p> {{mesaj}}</p>
 </div>
+<div ng_controller="StergeUser" id="StergeUser">
+<script>
+    if (localStorage.nivel == 1) {
+        let btn = document.createElement("button");
+        btn.innerHTML = "Sterge userul";
+        btn.id = 'sterge';
+        btn.onclick = (function() {
+            deSters();
+        });
+        document.getElementById('StergeUser').appendChild(btn);
+    }
+</script>
+</div>
 
 </body>
 </html>

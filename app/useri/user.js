@@ -56,3 +56,19 @@ function cerere() {
         scope.cererePrietenie();
     });
 }
+
+angular.module('booksting').controller('StergeUser', function($scope, $http) {
+    $scope.sterge = function() {
+        $http.get('http://localhost:8080/user/sterge?username=' + localStorage.flower).then(function (response) {
+            location.href = "../feed/feed.html";
+
+        });
+    };
+});
+
+function deSters() {
+    let scope = angular.element(document.getElementById("StergeUser")).scope();
+    scope.$apply(function () {
+        scope.sterge();
+    });
+}

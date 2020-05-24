@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="booksting">
+<head>
+    <meta charset="UTF-8">
+    <title>Adauga o carte noua</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="../modul_principal.js"></script>
+    <script src="adaugare.js"></script>
+</head>
+<body>
+
+<div ng-controller="AdaugaCarte" id="AdaugaCarte">
+    <p> Adauga o carte noua</p>
+    <p> Nume: </p>
+    <input type="text" value="" id="nume">
+    <p> Autor: </p>
+    <input type="text" value="" id="autor">
+    <p> Pagini: </p>
+    <input type="text" value="" id="pagini">
+    <p> An: </p>
+    <input type="text" value="" id="an">
+    <p> Coperta: </p>
+    <input type="text" value="" id="coperta">
+    <p> Descriere: </p>
+    <input type="text" value="" id="descriere">
+
+    <input type="button" onclick="faUpdate(nume.value, autor.value, pagini.value, an.value,
+        coperta.value, descriere.value);" value="Finalizeaza modificarile">
+
+</div>
+
+</body>
+</html>

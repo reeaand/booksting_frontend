@@ -1,7 +1,4 @@
 'use strict';
-function hello() {
-    console.log('Hello');
-}
 angular.module('booksting').controller('Notif', function($scope, $http) {
     $scope.acceptaPr = function(idd) {
         $http.post('http://localhost:8080/prietenie/accept?notif=' + idd).then(function successCallback(response) {

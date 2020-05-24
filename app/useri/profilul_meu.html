@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="booksting">
+<head>
+    <meta charset="UTF-8">
+    <title>Profilul meu</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="../modul_principal.js"></script>
+    <script src="editare_profil.js"></script>
+</head>
+<body>
+
+<div ng-controller="Profil" id="Profil">
+    <p> Profilul meu ({{username}})</p>
+    <p> Editeaza username: </p>
+    <input type="text" value="{{username}}" id="nume">
+    <p> Editeaza parola: </p>
+    <input type="text" value="*************" id="parola">
+    <p> Editeaza descrierea: </p>
+    <input type="text" value="{{descriere}}" id="descriere">
+    <input type="button" onclick="faUpdate(nume.value, parola.value, descriere.value);" value="Finalizeaza modificarile">
+
+</div>
+</body>
+</html>
