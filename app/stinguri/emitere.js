@@ -24,6 +24,17 @@ angular.module('booksting').controller('StingNou', function($scope, $http) {
     };
 });
 
+function trimiteSting() {
+    let zile = document.getElementById('zi').value;
+    let flower = document.getElementById('flowers').value;
+    let carte = document.getElementById('carti').value;
+    console.log(zile, flower, carte);
+    let scope = angular.element(document.getElementById("StingNou")).scope();
+    scope.$apply(function () {
+        scope.nou(carte, flower, zile);
+    });
+}
+
 function sendSting(carte, flower, zile) {
     let scope = angular.element(document.getElementById("StingNou")).scope();
     scope.$apply(function () {
@@ -35,16 +46,30 @@ angular.module('booksting').controller('ListaPrieteni', function($scope, $http) 
     console.log("aci");
         $http.get('http://localhost:8080/prietenie/listaPrieteni?username=' +localStorage.username)
             .then(function successCallback(response) {
-                console.log("mor");
-            $scope.prieteni = response.data;
-            if($scope.prieteni.length == 0) return;
-            let select1 = document.getElementById('flowers');
-            for (let i = 0; i < $scope.prieteni.length; i++) {
+                $scope.prieteni = response.data;
+                if($scope.prieteni.length == 0) return;
+                let select1 = document.getElementById('flowers');
+                for (let i = 0; i < $scope.prieteni.length; i++) {
+                    let opt1 = document.createElement('option');
+                    opt1.value = $scope.prieteni[i].username;
+                    opt1.innerHTML = $scope.prieteni[i].username;
+                    select1.appendChild(opt1);
+                }
+            });
+});
+
+angular.module('booksting').controller('ListaCarti', function($scope, $http) {
+    console.log("aci");
+    $http.get('http://localhost:8080/carte/all?username=' +localStorage.username)
+        .then(function successCallback(response) {
+            $scope.carti = response.data;
+            if($scope.carti.length == 0) return;
+            let select1 = document.getElementById('carti');
+            for (let i = 0; i < $scope.carti.length; i++) {
                 console.log(i);
                 let opt1 = document.createElement('option');
-                console.log($scope.prieteni[i]);
-                opt1.value = $scope.prieteni[i].username;
-                opt1.innerHTML = $scope.prieteni[i].username;
+                opt1.value = $scope.carti[i].nume;
+                opt1.innerHTML = $scope.carti[i].nume;
                 select1.appendChild(opt1);
             }
         });

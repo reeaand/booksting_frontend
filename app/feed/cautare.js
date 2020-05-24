@@ -7,6 +7,7 @@ angular.module('booksting').controller('CautareCarte', function($scope, $http) {
                 $scope.eroare = "Cartea nu exista!";
             } else {
                 localStorage.carte = $scope.carte.nume;
+                localStorage.carteId = $scope.carte.id;
                 location.href="../carti/pagina_cartii.html";
             }
         });
@@ -28,6 +29,7 @@ angular.module('booksting').controller('CautareUser', function($scope, $http) {
                 $scope.eroare = "Userul nu exista!";
             } else {
                 localStorage.flower = $scope.flower.username;
+                localStorage.idFlower = $scope.flower.id;
                 location.href="../useri/pagina_user.html";
             }
         });

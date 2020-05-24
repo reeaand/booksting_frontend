@@ -15,8 +15,9 @@
     </div>
     <p> Carte: </p>
     <select name="carti" id="carti">
-        <option value=3>Bee</option>
     </select>
+    <div ng-controller="ListaCarti" id="ListaCarti">
+    </div>
     <p> Zile: </p>
     <select name="zi" id="zi">
     </select>
@@ -31,6 +32,10 @@
         }
 
     </script>
+
+    <div ng-controller="StingNou" id="StingNou">
+        <input type="button" onclick="trimiteSting();" value="Trimite cerere de sting">
+    </div>
 
 </body>
 </html>

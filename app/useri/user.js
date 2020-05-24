@@ -3,6 +3,7 @@
 angular.module('booksting').controller('User', function($scope, $http) {
     $http.get('http://localhost:8080/user/searched?username=' + localStorage.flower).then(function (response) {
         $scope.flower = response.data;
+
     });
 });
 
@@ -11,7 +12,6 @@ angular.module('booksting').controller('Promotion', function($scope, $http) {
         $http.post('http://localhost:8080/user/promotion?promoter=' + localStorage.username + '&username=' + localStorage.flower+
         "&nivel=" + nivel).then(function successCallback(response) {
 
-            $scope.flower = response.data;
             $scope.mesaj = "Userul a fost promovat!";
             $scope.eroare = "";
         }, function errorCallback(response) {
@@ -23,10 +23,36 @@ angular.module('booksting').controller('Promotion', function($scope, $http) {
 
 function promovare(nivel) {
     let scope = angular.element(document.getElementById("Promotion")).scope();
-
-    console.log(nivel);
     scope.$apply(function () {
-        console.log(nivel);
         scope.promotie(nivel);
+    });
+}
+
+angular.module('booksting').controller('CererePrietenie', function($scope, $http) {
+    $scope.cererePrietenie = function() {
+        $http.post('http://localhost:8080/notif/friendRequest?username=' + localStorage.username +
+            '&toName=' + localStorage.flower).then(function successCallback(response) {
+                $scope.mesaj = "Cerere de prietenie trimisa!"
+        }, function errorCallback(response) {
+            $scope.mesaj ="Sunteti deja prieteni!";
+        });
+    };
+    $http.get('http://localhost:8080/prietenie/suntPrieteni?id1=' + localStorage.idUser +
+        '&id2=' + localStorage.idFlower).then(function successCallback(response) {
+            console.log(response.data);
+            if(response.data === true) return;
+            console.log(localStorage.idFlower + " " + localStorage.idUser);
+        let btn = document.createElement("BUTTON");
+        btn.innerHTML = "Cere prietenia";
+        btn.id = "cerere";
+        btn.onclick = $scope.cererePrietenie;
+        document.getElementById('CererePrietenie').appendChild(btn);
+    });
+});
+
+function cerere() {
+    let scope = angular.element(document.getElementById("CererePrietenie")).scope();
+    scope.$apply(function () {
+        scope.cererePrietenie();
     });
 }
