@@ -3,13 +3,57 @@
 <head>
   <title>Start</title>
 
+  <style>
+    .center {
+      margin: auto;
+      width: 60%;
+      border: 3px solid #41d0fc;
+      padding: 10px;
+      background-color: #ffffff;
+      height: 400px;
+      width: 500px;
+      color: #41d0fc;
+      text-align: center;
+    }
+
+    .butoane {
+      margin: auto;
+      border: 1px solid #41d0fc;
+      text_align: center;
+      background-color: #41d0fc;
+      color: white;
+      font-size: 20px;
+      height: 50px;
+      width: 120px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
 </head>
 
 <body>
-
-<input type="button" onclick="location.href='intrare/login.html';" value="Log in" />
-<input type="button" onclick="location.href='intrare/signup.html';" value="Sign up" />
-
+<script>
+  var i = 0;
+  var k = 1;
+  function changeC() {
+    var color = ["#cce6ff", "#84baee", "#66b3ff",
+      "rgb(79,158,238)", "rgb(39,140,243)", "#097bee", "#0066cc",
+      "#0a56a0", "#094a8d", "#004080"];
+    document.body.style.backgroundColor = color[i];
+    document.getElementById('booki').style.color = color[i];
+    i+=k;
+    if (i == color.length-1) k = -1;
+    if (i == 0) k = 1;
+  }
+  setInterval(changeC, 1000);
+</script>
+<br><br><br>
+<div class="center">
+  <h1 id="booki">~ BOOKSTING ~</h1>
+<input class="butoane" type="button" onclick="location.href='intrare/login.html';" value="Logare" />
+<input class="butoane" type="button" onclick="location.href='intrare/signup.html';" value="Inregistrare" />
+  <p></p>
+  <img height=256px width=256px src="logo_trans.png" alt="Logo">
+</div>
 </body>
 </html>
 

@@ -6,23 +6,66 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
     <script src="../modul_principal.js"></script>
     <script src="intrare.js"></script>
+    <script src="../smecherii/fundal_schimbator.js"></script>
 
+    <style>
+        .center {
+            margin: auto;
+            width: 60%;
+            border: 3px solid #41d0fc;
+            padding: 10px;
+            background-color: #ffffff;
+            height: 530px;
+            width: 400px;
+            color: #41d0fc;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .butoane {
+            margin: auto;
+            border: 1px solid #41d0fc;
+            text_align: center;
+            background-color: #41d0fc;
+            color: white;
+            font-size: 20px;
+            height: 50px;
+            width: 120px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #fixedbutton {
+            position: fixed;
+            top: 0px;
+            right: 0px;
+        }
+        .ceva {
+            border-bottom: 1px solid #41d0fc;
+            border-top: 1px solid #06475c;
+            width: 120px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
 
 <body>
-
-    <p> Username:</p>
+<br><br>
+<div class="center">
+    <p class="ceva">Username</p>
     <input type="text" id="username" >
-    <p> Password:</p>
-    <input type="text" id="parola" >
-
+    <p class="ceva">Parola</p>
+    <input type="password" id="parola" >
+    <br>
     <div ng-controller="Intrare" id="Intrare">
-    <input type="button" onclick="logare(username.value,parola.value)" value = "Log in">
-
+        <br>
+    <input class="butoane" type="button" onclick="logare(username.value,parola.value)" value = "Logare">
         <p> {{eroare}}</p>
-        <p> {{datele}}</p>
+        <img height=256px width=256px src="../logo_trans.png" alt="Logo">
     </div>
 
+    <input class="butoane" type="button" id="fixedbutton" onclick=location.href="../" value="Acasa">
+</div>
 </body>
 </html>
 
