@@ -46,6 +46,7 @@ angular.module('booksting').controller('CererePrietenie', function($scope, $http
         btn.innerHTML = "Cere prietenia";
         btn.id = "cerere";
         btn.onclick = $scope.cererePrietenie;
+        btn.className = "butoane";
         document.getElementById('CererePrietenie').appendChild(btn);
     });
 });
