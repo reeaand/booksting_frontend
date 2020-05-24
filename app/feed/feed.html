@@ -5,31 +5,125 @@
     <title>Feed</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
     <script src="../modul_principal.js"></script>
+    <script src="../smecherii/fundal_schimbator.js"></script>
     <script src="cautare.js"></script>
     <script src="notificari.js"></script>
     <script src="../stinguri/emitere.js"></script>
+
+    <style>
+        .center {
+            margin: auto;
+            border: 3px solid #41d0fc;
+            padding: 10px;
+            background-color: #ffffff;
+            height: auto;
+            width: 60%;
+            color: #41d0fc;
+            text-align: center;
+
+        }
+
+        .mic {
+            margin: auto;
+            border: 3px solid #41d0fc;
+            padding: 10px;
+            background-color: #ffffff;
+            height: auto;
+            width: 60%;
+            color: #41d0fc;
+            text-align: center;
+            alignment: center;
+        }
+
+        #stanga {
+            margin: auto;
+            left: 0;
+            border: 3px solid #41d0fc;
+            padding: 10px;
+            background-color: #ffffff;
+            height: auto;
+            width: 200px;
+            color: #41d0fc;
+            text-align: center;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+        }
+        #dreapta {
+            margin-left: 50%;
+            right: 0;
+            border: 3px solid #41d0fc;
+            padding: 10px;
+            background-color: #ffffff;
+            height: auto;
+            width: 200px;
+            color: #41d0fc;
+            text-align: center;
+            position: fixed;
+            top: 0px;
+            right: 0px;
+        }
+
+        .ceva {
+            border-bottom: 1px solid #41d0fc;
+            border-top: 1px solid #06475c;
+            width: 120px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .butoane {
+            margin: auto;
+            border: 1px solid #41d0fc;
+            text_align: center;
+            background-color: #41d0fc;
+            color: white;
+            font-size: 13px;
+            height: 25px;
+            width: auto;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
 </head>
 <body>
-<p> Cautare carte dupa nume:</p>
-<input type="text" id="numeC">
+
+<div id="stanga">
+<p class="ceva"> Cauta o carte</p>
+<input type="text" id="numeC"> <br><br>
 <div ng-controller="CautareCarte" id="CautareCarte">
-    <input type="button" onclick="cautCarte(numeC.value)" value = "Cauta carte">
+    <input class="butoane" type="button" onclick="cautCarte(numeC.value)" value = "Cauta carte">
     <p> {{eroare}}</p>
 </div>
+</div>
 
-<p> Cautare user dupa nume:</p>
-<input type="text" id="numeU">
+<div id="dreapta">
+<p class="ceva"> Cauta un user</p>
+<input type="text" id="numeU"> <br><br>
 <div ng-controller="CautareUser" id="CautareUser">
-    <input type="button" onclick="cautUser(numeU.value)" value = "Cauta user">
+    <input class="butoane" type="button" onclick="cautUser(numeU.value)" value = "Cauta user">
     <p> {{eroare}}</p>
 </div>
+</div>
+<div class="center">
+    <img height=100px width=100px src="../logo_trans.png" alt="Logo">
+    <img height=100px width=100px src="../logo_trans.png" alt="Logo">
+    <img height=100px width=100px src="../logo_trans.png" alt="Logo">
+    <img height=100px width=100px src="../logo_trans.png" alt="Logo">
+    <img height=100px width=100px src="../logo_trans.png" alt="Logo">
+    <p class="ceva"> Booksting</p>
+</div>
 
-<input type="button" onclick=location.href="../stinguri/stinguri.html" value = "Stingurile mele">
-<input type="button" onclick=location.href="../useri/profilul_meu.html" value = "Editeaza profilul">
-<div id="Adauga"></div>
+<div class="mic">
+    <input class="butoane" type="button" onclick=location.href="../stinguri/stinguri.html" value = "Stinguri personale">
+    <br>
+    <input class="butoane" type="button" onclick=location.href="../useri/profilul_meu.html" value = "Editare profil">
+    <br>
+    <div id="Adauga"></div>
+</div>
 <script>
     if (localStorage.nivel != 3) {
         let btn = document.createElement("button");
+        btn.className = "butoane";
         btn.innerHTML = "Adauga o carte noua";
         btn.id = 'carte noua';
         btn.onclick = (function() {
@@ -38,12 +132,12 @@
         document.getElementById('Adauga').appendChild(btn);
     }
 </script>
-<div ng-controller="Emite" id="Emite">
-    <input type="button" onclick="emiteUnSting();" value="Emite sting">
+<div class="center" ng-controller="Emite" id="Emite">
+    <input class="butoane" type="button" onclick="emiteUnSting();" value="~ Creeaza un sting nou ~">
 </div>
 
-<div ng-controller="Notif" id="Notif">
 
+<div class="center" ng-controller="Notif" id="Notif">
 </div>
 
 
